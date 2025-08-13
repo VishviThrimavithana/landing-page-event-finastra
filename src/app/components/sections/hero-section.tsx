@@ -3,73 +3,96 @@
 import { Button } from "../ui/button"
 import { Calendar, MapPin, Clock, ArrowRight } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 export function MinimalHeroSection() {
+  // const imageUrl = "https://cogentsolutions.ae/events/upcoming-physical-events/reimagine-banking-finastra/asset/images/Finastra-UB-Egypt-Event-Overview%20SMALL.jpg"
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-gray-50 to-white">
-      {/* Subtle purple accent elements */}
-      <div className="absolute top-20 right-20 w-2 h-32 bg-purple-500 opacity-20 rounded-full" />
-      <div className="absolute bottom-40 left-16 w-1 h-24 bg-purple-400 opacity-30 rounded-full" />
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        {/* Using regular img tag for external URL without Next.js optimization */}
+        <img
+          // src={imageUrl}
+           src="/images/hero.jpg"
+          alt="Finastra UB Egypt Event"
+          className="w-full h-full object-cover rounded-[20px]"
+        />
+        {/* Dark overlay for better text contrast */}
+        <div className="absolute inset-0 bg-black/40 rounded-[20px]" />
+        
+        {/* Glass morphism overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white/5 via-transparent to-black/20 backdrop-blur-[1px] rounded-[20px]" />
+      </div>
 
-      <div className="max-w-6xl mx-auto px-6 text-center">
-        {/* Event badge */}
-        <div className="inline-flex items-center px-6 py-2 rounded-full bg-gray-100 border border-gray-200 mb-12">
-          <div className="w-2 h-2 bg-purple-500 rounded-full mr-3" />
-          <span className="text-gray-700 font-medium text-sm">April 9, 2025 • Cairo, Egypt</span>
-        </div>
+      {/* Main content with glass container */}
+      <div className="relative z-10 max-w-6xl mx-auto px-6">
+        {/* Glass container for main content */}
+        <div className="bg-white/10 backdrop-blur-sm rounded-3xl border border-white/20 p-12 text-center shadow-2xl">
+          {/* Subtle purple accent elements */}
+          <div className="absolute top-20 right-20 w-2 h-32 bg-purple-500 opacity-20 rounded-full" />
+          <div className="absolute bottom-40 left-16 w-1 h-24 bg-purple-400 opacity-30 rounded-full" />
 
-        {/* Main headline */}
-        <h1 className="text-6xl md:text-8xl font-bold text-gray-900 mb-8 leading-tight tracking-tight">
-          Reimagine
-          <br />
-          <span className="text-purple-600">Banking</span>
-        </h1>
-
-        {/* Subtitle */}
-        <p className="text-xl md:text-2xl text-gray-600 mb-16 max-w-4xl mx-auto leading-relaxed">
-          Adapt. Evolve. Thrive.
-          <br />
-          Join industry leaders at Finastra's Universal Banking Forum
-        </p>
-
-        {/* Event details */}
-        <div className="flex flex-col md:flex-row items-center justify-center gap-8 mb-16">
-          <div className="flex items-center gap-3 text-gray-700">
-            <Calendar className="w-5 h-5 text-purple-500" />
-            <span className="font-medium">9:30 AM - 2:00 PM GMT+2</span>
+          {/* Event badge */}
+          <div className="inline-flex items-center px-6 py-2 rounded-full bg-white/20 border border-white/30 mb-12 backdrop-blur-sm">
+            <div className="w-2 h-2 bg-purple-400 rounded-full mr-3" />
+            <span className="text-white font-medium text-sm">April 9, 2025 • Cairo, Egypt</span>
           </div>
-          <div className="flex items-center gap-3 text-gray-700">
-            <MapPin className="w-5 h-5 text-purple-500" />
-            <span className="font-medium">The Nile Ritz-Carlton, Cairo</span>
-          </div>
-          <div className="flex items-center gap-3 text-gray-700">
-            <Clock className="w-5 h-5 text-purple-500" />
-            <span className="font-medium">Free Event</span>
-          </div>
-        </div>
 
-        {/* CTA buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button
-            size="lg"
-            className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-6 text-lg font-medium rounded-lg transition-all duration-300 hover:scale-105"
-            asChild
-          >
-            <Link href="#register">
-              <span className="flex items-center gap-2">
-                Register Now
-                <ArrowRight className="w-5 h-5" />
-              </span>
-            </Link>
-          </Button>
-          <Button
-            variant="outline"
-            size="lg"
-            className="border-2 border-gray-300 hover:border-purple-500 text-gray-700 hover:text-purple-600 px-8 py-6 text-lg font-medium rounded-lg transition-all duration-300 bg-transparent"
-            asChild
-          >
-            <Link href="#agenda">View Agenda</Link>
-          </Button>
+          {/* Main headline */}
+          <h1 className="text-6xl md:text-8xl font-bold text-white mb-8 leading-tight tracking-tight drop-shadow-lg">
+            Reimagine
+            <br />
+            <span className="text-purple-200">Banking</span>
+          </h1>
+
+          {/* Subtitle */}
+          <p className="text-xl md:text-2xl text-white/95 mb-16 max-w-4xl mx-auto leading-relaxed drop-shadow-md">
+            Adapt. Evolve. Thrive.
+            <br />
+            Join industry leaders at Finastra's Universal Banking Forum
+          </p>
+
+          {/* Event details */}
+          <div className="flex flex-col md:flex-row items-center justify-center gap-8 mb-16">
+            <div className="flex items-center gap-3 text-white bg-white/10 px-4 py-2 rounded-full backdrop-blur-sm">
+              <Calendar className="w-5 h-5 text-purple-200" />
+              <span className="font-medium">9:30 AM - 2:00 PM GMT+2</span>
+            </div>
+            <div className="flex items-center gap-3 text-white bg-white/10 px-4 py-2 rounded-full backdrop-blur-sm">
+              <MapPin className="w-5 h-5 text-purple-200" />
+              <span className="font-medium">The Nile Ritz-Carlton, Cairo</span>
+            </div>
+            <div className="flex items-center gap-3 text-white bg-white/10 px-4 py-2 rounded-full backdrop-blur-sm">
+              <Clock className="w-5 h-5 text-purple-200" />
+              <span className="font-medium">Free Event</span>
+            </div>
+          </div>
+
+          {/* CTA buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button
+              size="lg"
+              className="bg-purple-600/90 hover:bg-purple-700 backdrop-blur-sm text-white px-8 py-6 text-lg font-medium rounded-lg transition-all duration-300 hover:scale-105 shadow-xl"
+              asChild
+            >
+              <Link href="#register">
+                <span className="flex items-center gap-2">
+                  Register Now
+                  <ArrowRight className="w-5 h-5" />
+                </span>
+              </Link>
+            </Button>
+            <Button
+              variant="outline"
+              size="lg"
+              className="border-2 border-white/50 hover:border-white/70 text-white hover:text-white px-8 py-6 text-lg font-medium rounded-lg transition-all duration-300 bg-white/15 backdrop-blur-md hover:bg-white/25 shadow-xl"
+              asChild
+            >
+              <Link href="#agenda">View Agenda</Link>
+            </Button>
+          </div>
         </div>
       </div>
     </section>
