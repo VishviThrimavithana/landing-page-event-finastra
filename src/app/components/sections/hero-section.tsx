@@ -5,6 +5,7 @@ import { Calendar, MapPin, Clock, ArrowRight } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 
+
 export function MinimalHeroSection() {
   // const imageUrl = "https://cogentsolutions.ae/events/upcoming-physical-events/reimagine-banking-finastra/asset/images/Finastra-UB-Egypt-Event-Overview%20SMALL.jpg"
 
