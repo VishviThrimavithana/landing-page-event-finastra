@@ -5,22 +5,38 @@ import { Calendar, MapPin, Clock, ArrowRight } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { ShinyText } from "../ui/ShinyText"
+import Head from "next/head"
 
 
 export function MinimalHeroSection() {
   // const imageUrl = "https://cogentsolutions.ae/events/upcoming-physical-events/reimagine-banking-finastra/asset/images/Finastra-UB-Egypt-Event-Overview%20SMALL.jpg"
 
   return (
+       <>
+      <Head>
+        <link
+          rel="preload"
+          href="/images/hero.jpg"
+          as="image"
+          imageSrcSet="
+            /images/hero.jpg 1x,
+            /images/hero@2x.jpg 2x
+          "
+        />
+      </Head>
+
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 md:pt-0">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
-<Image
-  src="/images/hero.jpg"
-  alt="Finastra UB Egypt Event"
-  fill
-  className="object-cover rounded-[20px]"
-  priority
-/>
+ <Image
+            src="/images/hero.jpg"
+            alt="Finastra UB Egypt Event"
+            fill
+            className="object-cover rounded-[20px]"
+            priority
+            quality={85}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 100vw"
+          />
         {/* overlay */}
         <div className="absolute inset-0 bg-black/40 rounded-[20px]" />
 
@@ -97,5 +113,6 @@ export function MinimalHeroSection() {
         </div>
       </div>
     </section>
+     </>
   )
 }
