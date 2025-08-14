@@ -50,11 +50,12 @@ export function MinimalHeroSection() {
             />
           </h1>
 
-          <p className="text-xl font-tauri md:text-2xl text-white/95 mb-16 max-w-4xl mx-auto leading-relaxed drop-shadow-md">
+         <p className="text-xl font-tauri md:text-2xl text-white/95 mb-16 max-w-4xl mx-auto leading-relaxed drop-shadow-md">
   Adapt. Evolve. Thrive.
   <br />
   Join industry leaders at Finastra&apos;s Universal Banking Forum
 </p>
+
 
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 mb-16">
             <div className="flex items-center gap-3 text-white bg-white/10 px-4 py-2 rounded-full backdrop-blur-sm">
