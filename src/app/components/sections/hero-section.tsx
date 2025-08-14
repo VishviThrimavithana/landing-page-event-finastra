@@ -83,17 +83,17 @@ export function MinimalHeroSection() {
           {/* CTA buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
-              size="lg"
-              className="bg-purple-600/90 hover:bg-purple-700 backdrop-blur-sm text-white px-8 py-6 text-lg font-medium rounded-lg transition-all duration-300 hover:scale-105 shadow-xl"
-              asChild
-            >
-              <Link href="#register">
-                <span className="flex items-center gap-2">
-                 <Link href="/register">Register Now</Link>
-                  <ArrowRight className="w-5 h-5" />
-                </span>
-              </Link>
-            </Button>
+  size="lg"
+  className="bg-purple-600/90 hover:bg-purple-700 backdrop-blur-sm text-white px-8 py-6 text-lg font-medium rounded-lg transition-all duration-300 hover:scale-105 shadow-xl"
+  asChild
+>
+  <Link href="/register">
+    <span className="flex items-center gap-2">
+      Register Now
+      <ArrowRight className="w-5 h-5" />
+    </span>
+  </Link>
+</Button>
             <Button
               variant="outline"
               size="lg"
