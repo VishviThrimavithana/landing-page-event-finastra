@@ -2,9 +2,9 @@
 
 import { useState, useEffect } from "react"
 import { Bell, X, CheckCircle, AlertTriangle, Info, Calendar } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import { Button } from "../ui/button"
+import { Badge } from "../ui/badge"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu"
 
 interface Notification {
   id: string
