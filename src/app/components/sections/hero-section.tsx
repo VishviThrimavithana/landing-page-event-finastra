@@ -14,57 +14,47 @@ export function MinimalHeroSection() {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 md:pt-0">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        {/* Using regular img tag for external URL without Next.js optimization */}
+
         <img
-          // src={imageUrl}
-           src="/images/hero.jpg"
+          src="/images/hero.jpg"
           alt="Finastra UB Egypt Event"
           className="w-full h-full object-cover rounded-[20px]"
         />
-        {/* Dark overlay for better text contrast */}
+        {/* overlay */}
         <div className="absolute inset-0 bg-black/40 rounded-[20px]" />
-        
-        {/* Glass morphism overlay */}
+
+        {/* Glass */}
         <div className="absolute inset-0 bg-gradient-to-b from-white/5 via-transparent to-black/20 backdrop-blur-[1px] rounded-[20px]" />
       </div>
 
-      {/* Main content with glass container */}
       <div className="relative z-10 max-w-6xl mx-auto px-6">
-        {/* Glass container for main content */}
         <div className="bg-white/10 backdrop-blur-sm rounded-3xl border border-white/20 p-8 md:p-12 text-center shadow-2xl mt-8 md:mt-0">
-          {/* Subtle purple accent elements */}
-          {/* <div className="absolute top-20 right-20 w-2 h-32 bg-purple-500 opacity-20 rounded-full" /> */}
-          {/* <div className="absolute bottom-40 left-16 w-1 h-24 bg-purple-400 opacity-30 rounded-full" /> */}
 
-          {/* Event badge - Added mb-8 for mobile and md:mb-12 for desktop */}
           <div className="inline-flex items-center px-6 py-2 rounded-full bg-white/20 border border-white/30 mb-8 md:mb-12 backdrop-blur-sm">
             <div className="w-2 h-2 bg-purple-400 rounded-full mr-3" />
             <span className="text-white font-tauri font-medium text-sm">April 9, 2025 • Cairo, Egypt</span>
           </div>
 
-          {/* Main headline */}
           <h1 className="text-6xl md:text-8xl font-tauri font-bold text-white mb-8 leading-tight tracking-tight drop-shadow-lg">
-            <ShinyText 
-              text="Reimagine" 
+            <ShinyText
+              text="Reimagine"
               className="text-white"
               speed={3}
             />
             <br />
-            <ShinyText 
-              text="Banking" 
-              className="text-purple-200" 
+            <ShinyText
+              text="Banking"
+              className="text-purple-200"
               speed={3.5}
             />
           </h1>
 
-          {/* Subtitle */}
           <p className="text-xl font-tauri md:text-2xl text-white/95 mb-16 max-w-4xl mx-auto leading-relaxed drop-shadow-md">
             Adapt. Evolve. Thrive.
             <br />
             Join industry leaders at Finastra's Universal Banking Forum
           </p>
 
-          {/* Event details */}
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 mb-16">
             <div className="flex items-center gap-3 text-white bg-white/10 px-4 py-2 rounded-full backdrop-blur-sm">
               <Calendar className="w-5 h-5 text-purple-200" />
@@ -80,7 +70,6 @@ export function MinimalHeroSection() {
             </div>
           </div>
 
-          {/* CTA buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               size="lg"

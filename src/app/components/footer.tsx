@@ -54,14 +54,11 @@ export function Footer() {
 
   return (
     <footer className="bg-slate-900 text-slate-100 relative overflow-hidden">
-      {/* Background Pattern */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 opacity-50" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Main Footer Content */}
         <div className="py-16">
           <div className="grid lg:grid-cols-6 gap-12">
-            {/* Company Info - Takes up 2 columns */}
             <div className="lg:col-span-2">
               <div className="mb-6">
                 <h3 className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-2">
@@ -127,7 +124,7 @@ export function Footer() {
               </div>
             </div>
 
-            {/* Footer Links - Takes up 3 columns */}
+            {/* Footer Links*/}
             <div className="lg:col-span-3 grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
               {Object.entries(footerLinks).map(([category, links]) => (
                 <div key={category}>
@@ -149,7 +146,7 @@ export function Footer() {
               ))}
             </div>
 
-            {/* Office Locations - Takes up 1 column */}
+            {/* Office Locations */}
             <div className="lg:col-span-1">
               <h4 className="font-semibold text-slate-100 mb-4 text-sm uppercase tracking-wider">Our Offices</h4>
               <div className="space-y-6">

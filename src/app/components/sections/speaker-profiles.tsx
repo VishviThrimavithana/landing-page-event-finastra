@@ -195,7 +195,7 @@ export function SpeakersSection() {
           </p>
         </div>
 
-        {/* Speakers grid */}
+        {/* grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
           {speakers.map((speaker, index) => {
             const isExpanded = expandedCards.has(index)
@@ -303,20 +303,12 @@ export function SpeakersSection() {
                   </div>
                 </div>
 
-                {/* Hover effect overlay */}
                 <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-white/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
               </div>
             )
           })}
         </div>
 
-        {/* Call to action */}
-        {/* <div className="text-center mt-16">
-          <button className="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-8 py-4 rounded-2xl font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-slate-900/25 hover:-translate-y-0.5">
-            View All Speakers
-            <ExternalLink className="w-4 h-4" />
-          </button>
-        </div> */}
       </div>
     </section>
   )

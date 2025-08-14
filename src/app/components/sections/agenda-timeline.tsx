@@ -179,9 +179,8 @@ export function AgendaSection() {
                 index={index}
                 onMouseEnter={() => setSelectedIndex(index)}
               >
-                <div className={`flex gap-6 group transition-colors duration-200 ${
-                  selectedIndex === index ? 'bg-gray-50 rounded-lg p-2 -mx-2' : ''
-                }`}>
+                <div className={`flex gap-6 group transition-colors duration-200 ${selectedIndex === index ? 'bg-gray-50 rounded-lg p-2 -mx-2' : ''
+                  }`}>
                   {/* Time */}
                   <div className="flex-shrink-0 w-24 text-right">
                     <span className="text-sm font-medium text-gray-500">{item.time}</span>
@@ -190,15 +189,14 @@ export function AgendaSection() {
                   {/* Timeline dot */}
                   <div className="flex-shrink-0 flex flex-col items-center">
                     <div
-                      className={`w-3 h-3 rounded-full ${
-                        item.type === "keynote"
+                      className={`w-3 h-3 rounded-full ${item.type === "keynote"
                           ? "bg-purple-500"
                           : item.type === "panel"
                             ? "bg-purple-400"
                             : item.type === "break"
                               ? "bg-gray-300"
                               : "bg-gray-400"
-                      }`}
+                        }`}
                     />
                     {index < agenda.length - 1 && <div className="w-px h-16 bg-gray-200 mt-2" />}
                   </div>
@@ -206,13 +204,12 @@ export function AgendaSection() {
                   {/* Content */}
                   <div className="flex-1 pb-8">
                     <h3
-                      className={`font-semibold mb-2 ${
-                        item.type === "keynote"
+                      className={`font-semibold mb-2 ${item.type === "keynote"
                           ? "text-purple-600 text-lg"
                           : item.type === "break"
                             ? "text-gray-600"
                             : "text-gray-900"
-                      }`}
+                        }`}
                     >
                       {item.title}
                     </h3>
@@ -222,8 +219,7 @@ export function AgendaSection() {
               </AnimatedAgendaItem>
             ))}
           </div>
-          
-          {/* Gradients */}
+
           <div
             className="absolute top-0 left-0 right-0 h-[50px] bg-gradient-to-b from-white to-transparent pointer-events-none transition-opacity duration-300 ease"
             style={{ opacity: topGradientOpacity }}

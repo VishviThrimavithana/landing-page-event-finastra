@@ -16,14 +16,14 @@ export function RegistrationSection() {
       id="register"
       className="py-24 bg-gradient-to-br from-purple-900 via-purple-800 to-purple-700 relative overflow-hidden"
     >
-      {/* Modern background elements */}
+
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-300/10 rounded-full blur-3xl"></div>
         <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-purple-400/5 rounded-full blur-2xl"></div>
       </div>
 
-      {/* Animated grid pattern */}
+
       <div className="absolute inset-0 opacity-5">
         <div
           className="absolute inset-0"
@@ -36,7 +36,7 @@ export function RegistrationSection() {
 
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Left column - Registration info */}
+
           <div>
             <div className="flex items-center gap-3 mb-6">
               <Sparkles className="w-8 h-8 text-purple-300" />
@@ -53,11 +53,11 @@ export function RegistrationSection() {
               sector. Secure your place at this must-attend event!
             </p>
 
-            {/* Event details */}
-           <div className="space-y-4 mb-8 bg-white/10 backdrop-blur-xl rounded-2xl p-6 border border-white/20 shadow-xl shadow-purple-900/20 relative overflow-hidden">
-              {/* Glass effect overlay */}
+
+            <div className="space-y-4 mb-8 bg-white/10 backdrop-blur-xl rounded-2xl p-6 border border-white/20 shadow-xl shadow-purple-900/20 relative overflow-hidden">
+
               <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none"></div>
-              
+
               <div className="flex items-center gap-3 relative z-10">
                 <div className="p-2 bg-white/15 backdrop-blur-sm rounded-lg border border-white/10">
                   <Calendar className="w-5 h-5 text-white" />
@@ -119,7 +119,7 @@ export function RegistrationSection() {
             </p>
           </div>
 
-          {/* Right column - About Finastra */}
+
           <div className="bg-white backdrop-blur-lg rounded-3xl p-8 lg:p-12 border border-gray-200 shadow-2xl">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-3 h-3 bg-purple-500 rounded-full"></div>
