@@ -38,7 +38,7 @@ export function RegistrationSection() {
             </div>
             
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 leading-tight">
-             <Link href="/register">Register Now</Link>
+            Register Now
               <div className="h-1 w-24 bg-gradient-to-r from-purple-300 to-purple-500 mt-4 rounded-full"></div>
             </h2>
             
