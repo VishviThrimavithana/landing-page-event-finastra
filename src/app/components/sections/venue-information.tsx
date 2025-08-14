@@ -12,7 +12,7 @@ export function RegistrationSection() {
   ]
 
   return (
-    <section id="register" className="py-24 bg-gradient-to-br from-purple-900 via-purple-800 to-purple-700 relative overflow-hidden">
+    <section id="registration" className="py-24 bg-gradient-to-br from-purple-900 via-purple-800 to-purple-700 relative overflow-hidden">
       {/* Modern background elements */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl"></div>

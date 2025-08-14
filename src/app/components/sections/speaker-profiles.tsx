@@ -177,7 +177,7 @@ export function SpeakersSection() {
   ]
 
   return (
-    <section className="py-24 bg-gradient-to-br from-slate-50 via-white to-slate-100 overflow-hidden">
+    <section id="speakers" className="py-24 bg-gradient-to-br from-slate-50 via-white to-slate-100 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section header */}
         <div className="text-center mb-20">

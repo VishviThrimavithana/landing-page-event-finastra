@@ -20,11 +20,10 @@ export function Navigation() {
   }, [])
 
   const navItems = [
-    { href: "#overview", label: "Overview" },
-    { href: "#agenda", label: "Agenda" },
+    { href: "#event-overview", label: "Overview" },
     { href: "#speakers", label: "Speakers" },
-    { href: "#venue", label: "Venue" },
-    { href: "#pricing", label: "Pricing" },
+    { href: "#agenda", label: "Agenda" },
+    { href: "#registration", label: "Venue" }, // Assuming RegistrationSection includes venue information
   ]
 
   return (

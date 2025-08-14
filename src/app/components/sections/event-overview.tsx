@@ -30,7 +30,7 @@ export function EventOverview() {
   ]
 
   return (
-    <section className="py-24 bg-white">
+    <section id="event-overview" className="py-24 bg-white">
       <div className="max-w-6xl mx-auto px-6">
         {/* Section header */}
         <div className="text-center mb-20">
