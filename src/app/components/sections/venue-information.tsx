@@ -99,13 +99,16 @@ export function RegistrationSection() {
 
             {/* CTA Button */}
             <Button
+              asChild
               size="lg"
               className="bg-gradient-to-r from-purple-500 to-purple-400 hover:from-purple-400 hover:to-purple-300 text-white px-8 py-6 text-lg font-medium rounded-2xl transition-all duration-300 hover:scale-105 shadow-2xl shadow-purple-500/25 border border-purple-400/20"
             >
-              <span className="flex items-center gap-2">
-                <Link href="/register">Join us for an unforgettable experience</Link>
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </span>
+              <Link href="/register">
+                <span className="flex items-center gap-2">
+                  Join us for an unforgettable experience
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </span>
+              </Link>
             </Button>
 
             <p className="text-sm text-purple-200 mt-4">

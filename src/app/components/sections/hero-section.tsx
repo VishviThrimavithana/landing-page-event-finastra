@@ -14,12 +14,13 @@ export function MinimalHeroSection() {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 md:pt-0">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
-
-        <img
-          src="/images/hero.jpg"
-          alt="Finastra UB Egypt Event"
-          className="w-full h-full object-cover rounded-[20px]"
-        />
+<Image
+  src="/images/hero.jpg"
+  alt="Finastra UB Egypt Event"
+  fill
+  className="object-cover rounded-[20px]"
+  priority
+/>
         {/* overlay */}
         <div className="absolute inset-0 bg-black/40 rounded-[20px]" />
 
@@ -50,10 +51,10 @@ export function MinimalHeroSection() {
           </h1>
 
           <p className="text-xl font-tauri md:text-2xl text-white/95 mb-16 max-w-4xl mx-auto leading-relaxed drop-shadow-md">
-            Adapt. Evolve. Thrive.
-            <br />
-            Join industry leaders at Finastra&apos;s Universal Banking Forum
-          </p>
+  Adapt. Evolve. Thrive.
+  <br />
+  Join industry leaders at Finastra&apos;s Universal Banking Forum
+</p>
 
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 mb-16">
             <div className="flex items-center gap-3 text-white bg-white/10 px-4 py-2 rounded-full backdrop-blur-sm">
