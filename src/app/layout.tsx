@@ -3,11 +3,19 @@ import type { Metadata } from "next"
 import { DM_Sans } from "next/font/google"
 import { ThemeProvider } from "next-themes"
 import "./globals.css"
+import localFont from 'next/font/local'
 
+// Google font
 const dmSans = DM_Sans({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-dm-sans",
+})
+
+// Local font
+const tauri = localFont({
+  src: './fonts/Tauri-Regular.ttf',
+  variable: '--font-tauri',
 })
 
 export const metadata: Metadata = {
@@ -45,14 +53,14 @@ export default function RootLayout({
   return (
     <html 
       lang="en" 
-      className={`${dmSans.variable} antialiased light`}
-      suppressHydrationWarning 
+      className={`${dmSans.variable} ${tauri.variable} antialiased light`}
+      suppressHydrationWarning
     >
-      <body className="font-sans">
+      <body className="font-tauri"> 
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
-          enableSystem={false} 
+          enableSystem={false}
           disableTransitionOnChange
         >
           {children}

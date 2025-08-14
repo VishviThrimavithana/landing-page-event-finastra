@@ -33,17 +33,17 @@ export function MinimalHeroSection() {
         {/* Glass container for main content */}
         <div className="bg-white/10 backdrop-blur-sm rounded-3xl border border-white/20 p-12 text-center shadow-2xl">
           {/* Subtle purple accent elements */}
-          <div className="absolute top-20 right-20 w-2 h-32 bg-purple-500 opacity-20 rounded-full" />
-          <div className="absolute bottom-40 left-16 w-1 h-24 bg-purple-400 opacity-30 rounded-full" />
+          {/* <div className="absolute top-20 right-20 w-2 h-32 bg-purple-500 opacity-20 rounded-full" /> */}
+          {/* <div className="absolute bottom-40 left-16 w-1 h-24 bg-purple-400 opacity-30 rounded-full" /> */}
 
           {/* Event badge */}
           <div className="inline-flex items-center px-6 py-2 rounded-full bg-white/20 border border-white/30 mb-12 backdrop-blur-sm">
             <div className="w-2 h-2 bg-purple-400 rounded-full mr-3" />
-            <span className="text-white font-medium text-sm">April 9, 2025 • Cairo, Egypt</span>
+            <span className="text-white font-tauri font-medium text-sm">April 9, 2025 • Cairo, Egypt</span>
           </div>
 
           {/* Main headline */}
-  <h1 className="text-6xl md:text-8xl font-bold text-white mb-8 leading-tight tracking-tight drop-shadow-lg">
+  <h1 className="text-6xl md:text-8xl font-tauri font-bold text-white mb-8 leading-tight tracking-tight drop-shadow-lg">
         <ShinyText 
           text="Reimagine" 
           className="text-white"
@@ -58,7 +58,7 @@ export function MinimalHeroSection() {
       </h1>
 
           {/* Subtitle */}
-          <p className="text-xl md:text-2xl text-white/95 mb-16 max-w-4xl mx-auto leading-relaxed drop-shadow-md">
+          <p className="text-xl font-tauri md:text-2xl text-white/95 mb-16 max-w-4xl mx-auto leading-relaxed drop-shadow-md">
             Adapt. Evolve. Thrive.
             <br />
             Join industry leaders at Finastra's Universal Banking Forum
@@ -84,7 +84,7 @@ export function MinimalHeroSection() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
   size="lg"
-  className="bg-purple-600/90 hover:bg-purple-700 backdrop-blur-sm text-white px-8 py-6 text-lg font-medium rounded-lg transition-all duration-300 hover:scale-105 shadow-xl"
+  className="bg-purple-600/90 hover:bg-purple-700 font-tauri backdrop-blur-sm  text-white px-8 py-6 text-lg font-medium rounded-lg transition-all duration-300 hover:scale-105 shadow-xl"
   asChild
 >
   <Link href="/register">
@@ -97,7 +97,7 @@ export function MinimalHeroSection() {
             <Button
               variant="outline"
               size="lg"
-              className="border-2 border-white/50 hover:border-white/70 text-white hover:text-white px-8 py-6 text-lg font-medium rounded-lg transition-all duration-300 bg-white/15 backdrop-blur-md hover:bg-white/25 shadow-xl"
+              className="border-2 border-white/50 hover:border-white/70 font-tauri text-white hover:text-white px-8 py-6 text-lg font-medium rounded-lg transition-all duration-300 bg-white/15 backdrop-blur-md hover:bg-white/25 shadow-xl"
               asChild
             >
               <Link href="#agenda">View Agenda</Link>

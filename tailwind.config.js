@@ -12,6 +12,10 @@ module.exports = {
       animation: {
         shine: 'shine var(--shine-speed, 3s) linear infinite',
       },
+      fontFamily: {
+      tauri: ['var(--font-tauri)'],
     },
+    },
+    
   },
 }
