@@ -131,35 +131,48 @@ export function RegistrationForm() {
     }
   }
 
-  const validateStep = (step: number): boolean => {
-    const newErrors: Record<string, string> = {}
+const validateStep = (step: number): boolean => {
+  const newErrors: Record<string, string> = {}
 
-    switch (step) {
-      case 1:
-        if (!formData.firstName) newErrors.firstName = "First name is required"
-        if (!formData.lastName) newErrors.lastName = "Last name is required"
-        if (!formData.email) newErrors.email = "Email is required"
-        if (!formData.jobTitle) newErrors.jobTitle = "Job title is required"
-        if (!formData.company) newErrors.company = "Company is required"
-        break
-      case 2:
-        if (!formData.ticketType) newErrors.ticketType = "Please select a ticket type"
-        if (formData.interests.length === 0) newErrors.interests = "Please select at least one interest"
-        break
-      case 3:
-        if (!formData.networkingGoals) newErrors.networkingGoals = "Please describe your networking goals"
-        break
-      case 4:
-        if (!formData.billingAddress) newErrors.billingAddress = "Billing address is required"
-        if (!formData.city) newErrors.city = "City is required"
-        if (!formData.country) newErrors.country = "Country is required"
-        if (!formData.termsAccepted) newErrors.termsAccepted = "You must accept the terms and conditions"
-        break
-    }
-
-    setErrors(newErrors)
-    return Object.keys(newErrors).length === 0
+  switch (step) {
+    case 1:
+      if (!formData.firstName) newErrors.firstName = "First name is required"
+      if (!formData.lastName) newErrors.lastName = "Last name is required"
+      if (!formData.email) {
+        newErrors.email = "Email is required"
+      } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
+        newErrors.email = "Please enter a valid email address"
+      }
+      if (!formData.jobTitle) newErrors.jobTitle = "Job title is required"
+      if (!formData.company) newErrors.company = "Company is required"
+      if (formData.phone && !/^[\d\s+-]+$/.test(formData.phone)) {
+        newErrors.phone = "Please enter a valid phone number"
+      }
+      break
+    case 2:
+      if (!formData.ticketType) newErrors.ticketType = "Please select a ticket type"
+      if (formData.interests.length === 0) newErrors.interests = "Please select at least one interest"
+      break
+    case 3:
+      if (!formData.networkingGoals) newErrors.networkingGoals = "Please describe your networking goals"
+      if (formData.linkedinProfile && !formData.linkedinProfile.includes('linkedin.com/in/')) {
+        newErrors.linkedinProfile = "Please enter a valid LinkedIn profile URL"
+      }
+      break
+    case 4:
+      if (!formData.billingAddress) newErrors.billingAddress = "Billing address is required"
+      if (!formData.city) newErrors.city = "City is required"
+      if (!formData.country) newErrors.country = "Country is required"
+      if (formData.postalCode && !/^[a-zA-Z0-9\s-]+$/.test(formData.postalCode)) {
+        newErrors.postalCode = "Please enter a valid postal code"
+      }
+      if (!formData.termsAccepted) newErrors.termsAccepted = "You must accept the terms and conditions"
+      break
   }
+
+  setErrors(newErrors)
+  return Object.keys(newErrors).length === 0
+}
 
   const nextStep = () => {
     if (validateStep(currentStep)) {
@@ -172,21 +185,28 @@ export function RegistrationForm() {
   }
 
   const handleSubmit = async () => {
-    if (!validateStep(currentStep)) return
+  if (!validateStep(currentStep)) return;
 
-    setIsSubmitting(true)
-    try {
-      // Mock API call - in production, this would submit to your backend
-      await new Promise((resolve) => setTimeout(resolve, 2000))
+  setIsSubmitting(true);
+  try {
+    const response = await fetch('/api/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
+    });
 
-      // Redirect to success page instead of dashboard
-      router.push("/?registration=success")
-    } catch (error) {
-      console.error("Registration failed:", error)
-    } finally {
-      setIsSubmitting(false)
+    if (!response.ok) {
+      throw new Error('Submission failed');
     }
+
+    router.push("/?registration=success");
+  } catch (error) {
+    console.error("Registration failed:", error);
+   
+  } finally {
+    setIsSubmitting(false);
   }
+};
 
   const toggleInterest = (interest: string) => {
     const current = formData.interests
@@ -288,7 +308,13 @@ export function RegistrationForm() {
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="phone">Phone Number</Label>
-                  <Input id="phone" value={formData.phone} onChange={(e) => updateFormData("phone", e.target.value)} />
+                  <Input
+                    id="phone"
+                    value={formData.phone}
+                    onChange={(e) => updateFormData("phone", e.target.value)}
+                    className={errors.phone ? "border-destructive" : ""}
+                  />
+                  {errors.phone && <p className="text-sm text-destructive">{errors.phone}</p>}
                 </div>
               </div>
 
@@ -317,11 +343,11 @@ export function RegistrationForm() {
 
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="industry">Industry</Label>
+                  {/* <Label htmlFor="industry">Industry</Label> */}
                   <Select value={formData.industry} onValueChange={(value) => updateFormData("industry", value)}>
-                    <SelectTrigger>
+                    {/* <SelectTrigger>
                       <SelectValue placeholder="Select industry" />
-                    </SelectTrigger>
+                    </SelectTrigger> */}
                     <SelectContent>
                       <SelectItem value="banking">Banking</SelectItem>
                       <SelectItem value="fintech">Fintech</SelectItem>
@@ -333,11 +359,11 @@ export function RegistrationForm() {
                   </Select>
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="experience">Years of Experience</Label>
+                  {/* <Label htmlFor="experience">Years of Experience</Label> */}
                   <Select value={formData.experience} onValueChange={(value) => updateFormData("experience", value)}>
-                    <SelectTrigger>
+                    {/* <SelectTrigger>
                       <SelectValue placeholder="Select experience" />
-                    </SelectTrigger>
+                    </SelectTrigger> */}
                     <SelectContent>
                       <SelectItem value="0-2">0-2 years</SelectItem>
                       <SelectItem value="3-5">3-5 years</SelectItem>
@@ -469,7 +495,9 @@ export function RegistrationForm() {
                   placeholder="https://linkedin.com/in/yourprofile"
                   value={formData.linkedinProfile}
                   onChange={(e) => updateFormData("linkedinProfile", e.target.value)}
+                  className={errors.linkedinProfile ? "border-destructive" : ""}
                 />
+                {errors.linkedinProfile && <p className="text-sm text-destructive">{errors.linkedinProfile}</p>}
                 <p className="text-sm text-muted-foreground">
                   Optional: Share your LinkedIn profile to help other attendees connect with you
                 </p>
@@ -521,7 +549,9 @@ export function RegistrationForm() {
                         id="postalCode"
                         value={formData.postalCode}
                         onChange={(e) => updateFormData("postalCode", e.target.value)}
+                        className={errors.postalCode ? "border-destructive" : ""}
                       />
+                      {errors.postalCode && <p className="text-sm text-destructive">{errors.postalCode}</p>}
                     </div>
                   </div>
                 </div>

@@ -4,6 +4,7 @@ import { Button } from "../ui/button"
 import { Calendar, MapPin, Clock, ArrowRight } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import { ShinyText } from "../ui/ShinyText"
 
 
 export function MinimalHeroSection() {
@@ -42,11 +43,19 @@ export function MinimalHeroSection() {
           </div>
 
           {/* Main headline */}
-          <h1 className="text-6xl md:text-8xl font-bold text-white mb-8 leading-tight tracking-tight drop-shadow-lg">
-            Reimagine
-            <br />
-            <span className="text-purple-200">Banking</span>
-          </h1>
+  <h1 className="text-6xl md:text-8xl font-bold text-white mb-8 leading-tight tracking-tight drop-shadow-lg">
+        <ShinyText 
+          text="Reimagine" 
+          className="text-white"
+          speed={3}
+        />
+        <br />
+        <ShinyText 
+          text="Banking" 
+          className="text-purple-200" 
+          speed={3.5}
+        />
+      </h1>
 
           {/* Subtitle */}
           <p className="text-xl md:text-2xl text-white/95 mb-16 max-w-4xl mx-auto leading-relaxed drop-shadow-md">
@@ -80,7 +89,7 @@ export function MinimalHeroSection() {
             >
               <Link href="#register">
                 <span className="flex items-center gap-2">
-                  Register Now
+                 <Link href="/register">Register Now</Link>
                   <ArrowRight className="w-5 h-5" />
                 </span>
               </Link>

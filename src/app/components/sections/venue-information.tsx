@@ -38,7 +38,7 @@ export function RegistrationSection() {
             </div>
             
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 leading-tight">
-              Register Now
+             <Link href="/register">Register Now</Link>
               <div className="h-1 w-24 bg-gradient-to-r from-purple-300 to-purple-500 mt-4 rounded-full"></div>
             </h2>
             
@@ -91,7 +91,8 @@ export function RegistrationSection() {
               className="bg-gradient-to-r from-purple-500 to-purple-400 hover:from-purple-400 hover:to-purple-300 text-white px-8 py-6 text-lg font-medium rounded-2xl transition-all duration-300 hover:scale-105 shadow-2xl shadow-purple-500/25 border border-purple-400/20"
             >
               <span className="flex items-center gap-2">
-                Join us for an unforgettable experience
+                
+                 <Link href="/register">Join us for an unforgettable experience</Link>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </span>
             </Button>
