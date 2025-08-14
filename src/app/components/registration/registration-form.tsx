@@ -4,7 +4,7 @@ import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { Button } from "../ui/button"
 import { Input } from "../ui/input"
-import { Label } from "../ui/label"  
+import { Label } from "../ui/label"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card"
 import { Badge } from "../ui/badge"
 import { Separator } from "@radix-ui/react-separator"
@@ -124,55 +124,55 @@ export function RegistrationForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const router = useRouter()
 
-  const updateFormData = (field: keyof RegistrationData, value: any) => {
+  const updateFormData = <K extends keyof RegistrationData>(field: K, value: RegistrationData[K]) => {
     setFormData((prev) => ({ ...prev, [field]: value }))
     if (errors[field]) {
       setErrors((prev) => ({ ...prev, [field]: "" }))
     }
   }
 
-const validateStep = (step: number): boolean => {
-  const newErrors: Record<string, string> = {}
+  const validateStep = (step: number): boolean => {
+    const newErrors: Record<string, string> = {}
 
-  switch (step) {
-    case 1:
-      if (!formData.firstName) newErrors.firstName = "First name is required"
-      if (!formData.lastName) newErrors.lastName = "Last name is required"
-      if (!formData.email) {
-        newErrors.email = "Email is required"
-      } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
-        newErrors.email = "Please enter a valid email address"
-      }
-      if (!formData.jobTitle) newErrors.jobTitle = "Job title is required"
-      if (!formData.company) newErrors.company = "Company is required"
-      if (formData.phone && !/^[\d\s+-]+$/.test(formData.phone)) {
-        newErrors.phone = "Please enter a valid phone number"
-      }
-      break
-    case 2:
-      if (!formData.ticketType) newErrors.ticketType = "Please select a ticket type"
-      if (formData.interests.length === 0) newErrors.interests = "Please select at least one interest"
-      break
-    case 3:
-      if (!formData.networkingGoals) newErrors.networkingGoals = "Please describe your networking goals"
-      if (formData.linkedinProfile && !formData.linkedinProfile.includes('linkedin.com/in/')) {
-        newErrors.linkedinProfile = "Please enter a valid LinkedIn profile URL"
-      }
-      break
-    case 4:
-      if (!formData.billingAddress) newErrors.billingAddress = "Billing address is required"
-      if (!formData.city) newErrors.city = "City is required"
-      if (!formData.country) newErrors.country = "Country is required"
-      if (formData.postalCode && !/^[a-zA-Z0-9\s-]+$/.test(formData.postalCode)) {
-        newErrors.postalCode = "Please enter a valid postal code"
-      }
-      if (!formData.termsAccepted) newErrors.termsAccepted = "You must accept the terms and conditions"
-      break
+    switch (step) {
+      case 1:
+        if (!formData.firstName) newErrors.firstName = "First name is required"
+        if (!formData.lastName) newErrors.lastName = "Last name is required"
+        if (!formData.email) {
+          newErrors.email = "Email is required"
+        } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
+          newErrors.email = "Please enter a valid email address"
+        }
+        if (!formData.jobTitle) newErrors.jobTitle = "Job title is required"
+        if (!formData.company) newErrors.company = "Company is required"
+        if (formData.phone && !/^[\d\s+-]+$/.test(formData.phone)) {
+          newErrors.phone = "Please enter a valid phone number"
+        }
+        break
+      case 2:
+        if (!formData.ticketType) newErrors.ticketType = "Please select a ticket type"
+        if (formData.interests.length === 0) newErrors.interests = "Please select at least one interest"
+        break
+      case 3:
+        if (!formData.networkingGoals) newErrors.networkingGoals = "Please describe your networking goals"
+        if (formData.linkedinProfile && !formData.linkedinProfile.includes('linkedin.com/in/')) {
+          newErrors.linkedinProfile = "Please enter a valid LinkedIn profile URL"
+        }
+        break
+      case 4:
+        if (!formData.billingAddress) newErrors.billingAddress = "Billing address is required"
+        if (!formData.city) newErrors.city = "City is required"
+        if (!formData.country) newErrors.country = "Country is required"
+        if (formData.postalCode && !/^[a-zA-Z0-9\s-]+$/.test(formData.postalCode)) {
+          newErrors.postalCode = "Please enter a valid postal code"
+        }
+        if (!formData.termsAccepted) newErrors.termsAccepted = "You must accept the terms and conditions"
+        break
+    }
+
+    setErrors(newErrors)
+    return Object.keys(newErrors).length === 0
   }
-
-  setErrors(newErrors)
-  return Object.keys(newErrors).length === 0
-}
 
   const nextStep = () => {
     if (validateStep(currentStep)) {
@@ -185,28 +185,28 @@ const validateStep = (step: number): boolean => {
   }
 
   const handleSubmit = async () => {
-  if (!validateStep(currentStep)) return;
+    if (!validateStep(currentStep)) return;
 
-  setIsSubmitting(true);
-  try {
-    const response = await fetch('/api/register', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData),
-    });
+    setIsSubmitting(true);
+    try {
+      const response = await fetch('/api/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
 
-    if (!response.ok) {
-      throw new Error('Submission failed');
+      if (!response.ok) {
+        throw new Error('Submission failed');
+      }
+
+      router.push("/?registration=success");
+    } catch (error) {
+      console.error("Registration failed:", error);
+
+    } finally {
+      setIsSubmitting(false);
     }
-
-    router.push("/?registration=success");
-  } catch (error) {
-    console.error("Registration failed:", error);
-   
-  } finally {
-    setIsSubmitting(false);
-  }
-};
+  };
 
   const toggleInterest = (interest: string) => {
     const current = formData.interests
@@ -232,20 +232,18 @@ const validateStep = (step: number): boolean => {
           {steps.map((step, index) => (
             <div key={step.id} className="flex items-center">
               <div
-                className={`flex items-center justify-center w-10 h-10 rounded-full border-2 ${
-                  currentStep > step.id
+                className={`flex items-center justify-center w-10 h-10 rounded-full border-2 ${currentStep > step.id
                     ? "bg-accent text-accent-foreground border-accent"
                     : currentStep === step.id
                       ? "border-accent text-accent"
                       : "border-muted-foreground text-muted-foreground"
-                }`}
+                  }`}
               >
                 {currentStep > step.id ? <Check className="w-5 h-5" /> : <step.icon className="w-5 h-5" />}
               </div>
               <span
-                className={`ml-2 text-sm font-medium ${
-                  currentStep >= step.id ? "text-foreground" : "text-muted-foreground"
-                }`}
+                className={`ml-2 text-sm font-medium ${currentStep >= step.id ? "text-foreground" : "text-muted-foreground"
+                  }`}
               >
                 {step.title}
               </span>
@@ -384,15 +382,14 @@ const validateStep = (step: number): boolean => {
                 <Label className="text-base font-semibold">Select Your Ticket Type *</Label>
                 <RadioGroup
                   value={formData.ticketType}
-                  onValueChange={(value) => updateFormData("ticketType", value as any)}
+                  onValueChange={(value: "early-bird" | "standard" | "vip") => updateFormData("ticketType", value)}
                   className="mt-4"
                 >
                   {ticketTypes.map((ticket) => (
                     <div key={ticket.id} className="relative">
                       <div
-                        className={`border rounded-lg p-4 cursor-pointer transition-all ${
-                          formData.ticketType === ticket.id ? "border-accent bg-accent/5" : "border-border"
-                        }`}
+                        className={`border rounded-lg p-4 cursor-pointer transition-all ${formData.ticketType === ticket.id ? "border-accent bg-accent/5" : "border-border"
+                          }`}
                       >
                         <div className="flex items-center space-x-3">
                           <RadioGroupItem value={ticket.id} id={ticket.id} />
@@ -587,7 +584,11 @@ const validateStep = (step: number): boolean => {
                   <Checkbox
                     id="terms"
                     checked={formData.termsAccepted}
-                    onCheckedChange={(checked) => updateFormData("termsAccepted", checked)}
+                    onCheckedChange={(checked) => {
+                      if (typeof checked === "boolean") {
+                        updateFormData("termsAccepted", checked);
+                      }
+                    }}
                   />
                   <Label htmlFor="terms" className="text-sm cursor-pointer">
                     I accept the{" "}
@@ -607,7 +608,11 @@ const validateStep = (step: number): boolean => {
                   <Checkbox
                     id="marketing"
                     checked={formData.marketingConsent}
-                    onCheckedChange={(checked) => updateFormData("marketingConsent", checked)}
+                    onCheckedChange={(checked) => {
+                      if (typeof checked === "boolean") {
+                        updateFormData("marketingConsent", checked);
+                      }
+                    }}
                   />
                   <Label htmlFor="marketing" className="text-sm cursor-pointer">
                     I would like to receive updates about future events and offers

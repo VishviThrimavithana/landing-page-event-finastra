@@ -52,7 +52,7 @@ export function MinimalHeroSection() {
           <p className="text-xl font-tauri md:text-2xl text-white/95 mb-16 max-w-4xl mx-auto leading-relaxed drop-shadow-md">
             Adapt. Evolve. Thrive.
             <br />
-            Join industry leaders at Finastra's Universal Banking Forum
+            Join industry leaders at Finastra&apos;s Universal Banking Forum
           </p>
 
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 mb-16">

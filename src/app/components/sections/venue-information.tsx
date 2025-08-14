@@ -49,7 +49,7 @@ export function RegistrationSection() {
             </h2>
 
             <p className="text-xl text-purple-100 mb-8 leading-relaxed">
-              Don't miss this opportunity to enhance your knowledge, skills, and network in the finance and banking
+              Don&apos;t miss this opportunity to enhance your knowledge, skills, and network in the finance and banking
               sector. Secure your place at this must-attend event!
             </p>
 
@@ -137,7 +137,7 @@ export function RegistrationSection() {
               accelerate the future of Open Finance through technology and collaboration.
             </p>
             <p className="text-gray-800 leading-relaxed">
-              Trusted by ~8,100 financial institutions, including 45 of the world's top 50 banks.
+              Trusted by ~8,100 financial institutions, including 45 of the world&apos;s top 50 banks.
             </p>
 
             <div className="mt-8 pt-6 border-t border-gray-200">
